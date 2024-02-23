@@ -2,7 +2,7 @@ import scrapy
 
 
 class BookspiderSpider(scrapy.Spider):
-    name = "bookspider"
+    name = "bookspider2"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com"]
 
