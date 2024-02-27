@@ -16,7 +16,7 @@ class BookscraperPipeline:
         # Strip all whitespace from strings
         field_names = adapter.field_names()
         for field_name in field_names:
-            if field_name != 'desciption':
+            if field_name != 'description':
                 # asigning the stripped field name back to the field name 
                 value = adapter.get(field_name)
                 adapter[field_name] = value.strip()
@@ -27,7 +27,7 @@ class BookscraperPipeline:
             value = adapter.get(lowercase_key)
             adapter[lowercase_key] = value.lower()
 
-        # Converting the price into float
+        # Converting the prices into float values
         price_keys = ['price', 'price_excl_tax', 'price_incl_tax', 'tax']
         for price_key in price_keys:
             value = adapter.get(price_key)
@@ -35,7 +35,7 @@ class BookscraperPipeline:
             adapter[price_key] = float(value)
 
         # Removing text from availability and keeping exact number only 
-        availability_string = adapter.get('')
+        availability_string = adapter.get('availability')
         split_string_array = availability_string.split('(')
         if len(split_string_array) < 2:
             adapter['availability'] = 0
