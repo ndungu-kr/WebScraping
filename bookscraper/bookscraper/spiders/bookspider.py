@@ -58,4 +58,4 @@ class BookspiderSpider(scrapy.Spider):
         book_item['price'] = response.css('p.price_color ::text').get()
         
 
-        yield BookItem
+        yield book_item
