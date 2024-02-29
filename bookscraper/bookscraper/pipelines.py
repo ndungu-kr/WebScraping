@@ -70,6 +70,11 @@ class BookscraperPipeline:
 import mysql.connector
 
 class SaveToMySQLPipeline:
+    """ 
+    This will only create the db and input data,
+    functionality for check for duplicates has not been implemented,
+    so if the "books" table exists, it will append rows.
+    """
     
     def __init__(self):
         self.conn = mysql.connector.connect(
